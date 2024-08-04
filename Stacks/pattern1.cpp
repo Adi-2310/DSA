@@ -32,6 +32,7 @@ int main(){
 
 //ACTUAL METHOD STACK
 
+    //NGR
     // start from the end of the array
     // push elements onto the stack
     // if the stack is empty, push -1 as the greater element
@@ -45,6 +46,8 @@ stack<int> st;
 int n;
 
 int main(){
+
+    // NGR
     for(int i =n-1;i>0;i--){
 
         if(st.empty()) v.push_back(-1);
@@ -62,4 +65,32 @@ int main(){
         
         st.push(arr[i]);
     }
+
+   //NGL
+   // we will start from the start of the array
+   //if stack is empty, return -1
+   // if the stack's top is not greater than the element, we will move further to the left after popping the top until we 
+   // get an element greater than the ith element 
+   
+   for(int i=0;i<n-1;i++){
+
+        if(st.empty()) v.push_back(-1);
+
+        else if (!st.empty() && st.top() > arr[i]){
+            v.push_back(arr[i]);
+        }
+
+        else if(!st.empty() && st.top() <= arr[i]){
+            while(!st.empty() && st.top() <= arr[i]){
+                st.pop();
+            }
+
+            if(st.empty()) v.push_back(-1);
+
+            else v.push_back(st.top());
+        }
+
+        st.push(arr[i]);
+   }
+    
 }
