@@ -66,6 +66,9 @@ int main(){
         st.push(arr[i]);
     }
 
+   reverse(v.begin(),v.end());
+
+
    //NGL
    // we will start from the start of the array
    //if stack is empty, return -1
